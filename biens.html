@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VILLAE Realty — Nos biens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+.vr{--bg:#0F1311;--surface:#151A17;--surface2:#1D2420;--ink:#ECEAE2;--muted:#A3A79C;--line:rgba(236,234,226,.13);--line2:rgba(236,234,226,.35);--accent:#B8CDB2;--accent-hi:#CFE0C9;--accent-text:#BFD3B8;--on-accent:#0F1311;--ph:#1D2420;--glow:rgba(184,205,178,.3);--shadow:rgba(0,0,0,.6);background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;transition:background-color .5s ease,color .5s ease}
+.vr.light{--bg:#F4F2EC;--surface:#EAE7DE;--surface2:#DFDBD0;--ink:#1A1F1C;--muted:#59605A;--line:#D2CEC2;--line2:#959B92;--accent:#3E5A47;--accent-hi:#4B6B55;--accent-text:#3E5A47;--on-accent:#F4F2EC;--ph:#DFDBD0;--glow:rgba(62,90,71,.35);--shadow:rgba(30,40,32,.3)}
+.vr header,.vr section{transition:background-color .5s ease,color .5s ease,border-color .5s ease}
+.vr-serif{font-family:Fraunces,Georgia,serif;font-optical-sizing:auto}
+a{color:var(--accent-text)}
+.vr-link{position:relative;padding:12px 2px;margin:0 10px;font-size:13px;letter-spacing:.06em;color:var(--ink);text-decoration:none;transition:color .3s}
+.vr-link::after{content:"";position:absolute;left:50%;right:50%;bottom:6px;height:1px;background:var(--accent);transition:left .4s cubic-bezier(.2,.7,.2,1),right .4s cubic-bezier(.2,.7,.2,1)}
+.vr-link:hover,.vr-link.on{color:var(--accent-text)}
+.vr-link:hover::after,.vr-link.on::after{left:0;right:0}
+.vr-btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:17px 28px;border-radius:999px;font-family:inherit;font-size:13px;letter-spacing:.06em;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,color .35s,border-color .35s,background-color .35s}
+.vr-arr{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.vr-btn:hover .vr-arr{transform:translateX(5px)}
+.vr-btn:active{transform:scale(.97)}
+.vr-solid{background:var(--accent);color:var(--on-accent)}
+.vr-solid::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--accent-hi);transform:scale(0);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.vr-solid:hover{color:var(--on-accent);transform:translateY(-2px);box-shadow:0 14px 32px -14px var(--glow),0 6px 16px -10px var(--shadow)}
+.vr-solid:hover::before{transform:scale(1.5)}
+.vr-ghost{color:var(--ink);border-color:var(--line2);background:transparent}
+.vr-ghost::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--ink);transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.vr-ghost:hover{color:var(--bg);border-color:var(--ink);transform:translateY(-2px)}
+.vr-ghost:hover::after{transform:translateY(0)}
+.vr-seg{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px}
+.vr-sb{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;transition:background-color .3s,color .3s}
+.vr-sb svg{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.vr-sb:hover{color:var(--ink);background:var(--surface2)}
+.vr-sb:hover svg{transform:rotate(-25deg) scale(1.1)}
+.vr-sb.on{background:var(--accent);color:var(--on-accent)}
+.vr-crumb{color:var(--muted);text-decoration:none;transition:color .3s}
+.vr-crumb:hover{color:var(--accent-text)}
+.vr-chip{min-height:44px;padding:10px 20px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-family:inherit;font-size:14px;cursor:pointer;transition:background-color .3s,color .3s,border-color .3s,transform .3s cubic-bezier(.2,.7,.2,1)}
+.vr-chip:hover{border-color:var(--accent);transform:translateY(-2px)}
+.vr-chip.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.vr-img{position:relative;overflow:hidden;background:var(--ph)}
+.vr-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.vr-card{display:flex;flex-direction:column;gap:16px;position:relative}
+.vr-card .vr-img{border-radius:18px}
+.vr-card:hover .vr-img img{transform:scale(1.06)}
+.vr-card .vr-ct{color:var(--ink);text-decoration:none;transition:color .3s}
+.vr-card:hover .vr-ct{color:var(--accent-text)}
+.vr-tag{position:absolute;top:16px;left:16px;padding:7px 14px;border-radius:999px;background:rgba(15,19,17,.75);color:#FFFFFF;font-size:11px;letter-spacing:.14em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.vr-fav{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:0;display:flex;align-items:center;justify-content:center;background:rgba(15,19,17,.6);color:#FFFFFF;cursor:pointer;backdrop-filter:blur(6px);transition:transform .3s cubic-bezier(.2,.7,.2,1),background-color .3s}
+.vr-fav:hover{transform:scale(1.12);background:rgba(15,19,17,.85)}
+.vr-fav.on{background:#FFFFFF;color:#C2412D}
+.vr-peek{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-radius:999px;background:rgba(255,255,255,.94);color:#0F1311;font-size:13px;font-weight:600;text-decoration:none;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s cubic-bezier(.2,.7,.2,1)}
+.vr-card:hover .vr-peek,.vr-peek:focus{opacity:1;transform:none}
+.vr-flink{color:#A3A79C;text-decoration:none;transition:color .3s}
+.vr-flink:hover{color:#CFE0C9}
+@keyframes vr-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.vr-in{animation:vr-in .7s cubic-bezier(.2,.7,.2,1) both}
+</style>
+<script src="js/dc-lite.js" defer></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<noscript><p style="padding:40px;font-family:sans-serif">Ce site nécessite JavaScript.</p></noscript>
+<template id="dc-tpl">
+
+
+<div class="vr {{themeClass}}" style="width: 100%; min-height: 100vh">
+
+
+  <header style="position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px">
+      <a href="index.html" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink)">
+        <svg width="40" height="44" viewBox="0 0 40 44" fill="none" aria-hidden="true" style="stroke: var(--accent)"><path d="M3 43V20a17 17 0 0 1 34 0v23" stroke-width="1.2"></path><path d="M10 43V21a10 10 0 0 1 20 0v22" stroke-width="0.7"></path><path d="M1 43h38" stroke-width="1.2"></path></svg>
+        <span style="display: flex; flex-direction: column; line-height: 1.1">
+          <span class="vr-serif" style="font-size: 23px; letter-spacing: 0.08em">VILLAE</span>
+          <span style="font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted)">Realty</span>
+        </span>
+      </a>
+      <nav aria-label="Navigation principale" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+        <a href="index.html" class="vr-link">Accueil</a>
+        <a href="biens.html" class="vr-link on">Nos biens</a>
+        <a href="index.html" class="vr-link">Services</a>
+        <a href="contact.html" class="vr-link">Contact</a>
+        <div class="vr-seg" role="group" aria-label="Thème d'affichage" style="margin-left: 10px">
+          <button type="button" class="vr-sb {{segDark}}" aria-pressed="{{pDark}}" aria-label="Thème sombre" title="Sombre" onClick="{{toDark}}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"></path></svg></button>
+          <button type="button" class="vr-sb {{segLight}}" aria-pressed="{{pLight}}" aria-label="Thème clair" title="Clair" onClick="{{toLight}}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+          <button type="button" class="vr-sb {{segAuto}}" aria-pressed="{{pAuto}}" aria-label="Suivre le réglage de l'appareil" title="Auto" onClick="{{toAuto}}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12.5" rx="1.5"></rect><path d="M9 20.5h6M12 16.5v4"></path></svg></button>
+        </div>
+        <a href="contact.html" class="vr-btn vr-solid" style="margin-left: 10px; padding: 13px 22px">Estimer mon bien <span class="vr-arr">→</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- EN-TETE -->
+  <section style="max-width: 1280px; margin: 0 auto; padding: 56px 40px 48px">
+    <p style="margin: 0 0 48px; font-size: 13px; letter-spacing: 0.06em"><a href="index.html" class="vr-crumb">Accueil</a> <span style="color: var(--muted)">/</span> <span style="color: var(--accent-text)">Nos biens</span></p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px">
+      <h1 class="vr-serif" style="margin: 0; font-weight: 300; font-size: clamp(46px, 6.4vw, 92px); line-height: 0.98; letter-spacing: -0.02em">Nos biens <em style="color: var(--accent-text)">disponibles</em></h1>
+      <p style="margin: 0; max-width: 380px; font-size: 16px; line-height: 1.7; color: var(--muted)">Une sélection resserrée de biens vérifiés. D'autres opportunités sont proposées en toute discrétion : parlez-nous de votre projet.</p>
+    </div>
+  </section>
+
+  <!-- FILTRES -->
+  <section style="position: sticky; top: 73px; z-index: 40; background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 16px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 32px">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px">
+        <div role="group" aria-label="Transaction" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{deals}}" as="d" hint-placeholder-count="3"><button type="button" class="vr-chip {{d.on}}" aria-pressed="{{d.p}}" onClick="{{d.pick}}">{{d.label}}</button></sc-for>
+        </div>
+        <span aria-hidden="true" style="width: 1px; height: 28px; background: var(--line)"></span>
+        <div role="group" aria-label="Type de bien" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{types}}" as="d" hint-placeholder-count="5"><button type="button" class="vr-chip {{d.on}}" aria-pressed="{{d.p}}" onClick="{{d.pick}}">{{d.label}}</button></sc-for>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px; font-size: 14px; color: var(--muted)">
+        <span role="status" aria-live="polite"><strong style="color: var(--ink); font-weight: 600">{{count}}</strong> {{countLabel}}</span>
+        <button type="button" class="vr-chip {{favOnlyCls}}" aria-pressed="{{favOnlyP}}" onClick="{{toggleFavOnly}}" style="display: inline-flex; align-items: center; gap: 8px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg>Favoris</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRILLE -->
+  <section style="max-width: 1280px; margin: 0 auto; padding: 56px 40px 120px">
+    <sc-if value="{{hasItems}}" hint-placeholder-val="{{ true }}">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 48px 28px">
+        <sc-for list="{{items}}" as="b" hint-placeholder-count="6">
+          <article class="vr-card vr-in" style="animation-delay: {{b.delay}}">
+            <div class="vr-img" style="aspect-ratio: 4 / 3">
+              <img src="{{b.img}}" alt="{{b.alt}}">
+              <span class="vr-tag">{{b.deal}}</span>
+              <button type="button" class="vr-fav {{b.favCls}}" aria-pressed="{{b.favP}}" aria-label="{{b.favLabel}}" onClick="{{b.toggle}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="{{b.heartFill}}" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"></path></svg></button>
+              <a href="contact.html" class="vr-peek">Demander une visite <span class="vr-arr">→</span></a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+              <a href="contact.html" class="vr-ct vr-serif" style="font-size: 25px; font-weight: 400">{{b.title}}</a>
+              <span style="font-size: 13px; color: var(--muted); white-space: nowrap">{{b.city}}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted)">
+              <span>{{b.specs}}</span>
+              <span style="color: var(--accent-text); font-weight: 600">{{b.price}}</span>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </sc-if>
+    <sc-if value="{{noItems}}" hint-placeholder-val="{{ false }}">
+      <div style="padding: 96px 32px; border: 1px dashed var(--line2); border-radius: 22px; display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center">
+        <h2 class="vr-serif" style="margin: 0; font-weight: 300; font-size: 36px">Aucun bien ne correspond</h2>
+        <p style="margin: 0; max-width: 420px; font-size: 15px; line-height: 1.7; color: var(--muted)">Élargissez vos filtres, ou confiez-nous votre recherche : nous avons aussi des biens hors marché.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center"><button type="button" class="vr-btn vr-ghost" onClick="{{resetFilters}}">Réinitialiser les filtres</button><a href="contact.html" class="vr-btn vr-solid">Confier ma recherche <span class="vr-arr">→</span></a></div>
+      </div>
+    </sc-if>
+    <p style="margin: 48px 0 0; font-size: 12px; color: var(--muted)">Annonces d'exemple — à remplacer par votre portefeuille de biens.</p>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--surface); border-top: 1px solid var(--line)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 100px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px">
+      <h2 class="vr-serif" style="margin: 0; max-width: 680px; font-weight: 300; font-size: clamp(32px, 3.8vw, 52px); line-height: 1.1">Vous ne trouvez pas ? <em style="color: var(--accent-text)">Nous cherchons pour vous.</em></h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px"><a href="contact.html" class="vr-btn vr-solid">Confier ma recherche <span class="vr-arr">→</span></a><a href="index.html" class="vr-btn vr-ghost">Retour à l'accueil</a></div>
+    </div>
+  </section>
+
+  <footer style="background: #070807; color: #A3A79C">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 12px">
+      <span>© 2026 VILLAE Realty · Carte professionnelle [N°] · Photos : Unsplash</span>
+      <span style="display: flex; flex-wrap: wrap; gap: 24px"><a href="index.html" class="vr-flink">Accueil</a><a href="contact.html" class="vr-flink">Contact</a><a href="#" class="vr-flink">Mentions légales</a><a href="#" class="vr-flink">Honoraires</a></span>
+    </div>
+  </footer>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2800}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    let t = 'dark';
+    try { t = window.localStorage.getItem('vpm-theme') || 'dark'; } catch (e) {}
+    let favs = {};
+    try { favs = JSON.parse(window.localStorage.getItem('vr-favs') || '{}') || {}; } catch (e) {}
+    let sys = true;
+    try {
+      this.mq = window.matchMedia('(prefers-color-scheme: dark)');
+      sys = this.mq.matches;
+      this.onMq = (e) => this.setState({ sysDark: e.matches });
+      this.mq.addEventListener('change', this.onMq);
+    } catch (e) {}
+    this.setState({ theme: t, sysDark: sys, favs: favs });
+  }
+  componentWillUnmount() { try { this.mq.removeEventListener('change', this.onMq); } catch (e) {} }
+  setTheme(t) {
+    this.setState({ theme: t });
+    try { window.localStorage.setItem('vpm-theme', t); } catch (e) {}
+  }
+  toggleFav(id) {
+    const favs = Object.assign({}, (this.state && this.state.favs) || {});
+    favs[id] = !favs[id];
+    this.setState({ favs: favs });
+    try { window.localStorage.setItem('vr-favs', JSON.stringify(favs)); } catch (e) {}
+  }
+  data() {
+    return [
+      { id: 'p8', title: 'Appartement haussmannien', city: 'Paris 8e', deal: 'Vente', type: 'Appartement', specs: '5 pièces · 160 m²', img: 'assets/r-living1.jpg', alt: 'Séjour avec cheminée et grande verrière' },
+      { id: 'azur', title: 'Villa contemporaine', city: "Côte d'Azur", deal: 'Vente', type: 'Villa', specs: '7 pièces · 320 m²', img: 'assets/r-villa1.jpg', alt: 'Villa blanche avec piscine' },
+      { id: 'lyon', title: 'Appartement lumineux', city: 'Lyon 6e', deal: 'Location', type: 'Appartement', specs: '3 pièces · 85 m²', img: 'assets/r-living2.jpg', alt: 'Salon clair avec canapé et tableaux' },
+      { id: 'bdx', title: 'Maison familiale', city: 'Bordeaux', deal: 'Vente', type: 'Maison', specs: '6 pièces · 210 m²', img: 'assets/r-house.jpg', alt: 'Maison avec piscine et palmiers' },
+      { id: 'var', title: 'Villa avec piscine', city: 'Var', deal: 'Location', type: 'Villa', specs: '8 pièces · 400 m²', img: 'assets/r-villa2.jpg', alt: 'Grande villa avec piscine au crépuscule' },
+      { id: 'p11', title: 'Loft de caractère', city: 'Paris 11e', deal: 'Vente', type: 'Loft', specs: '4 pièces · 120 m²', img: 'assets/r-arch.jpg', alt: 'Salon contemporain avec porte en arche' },
+      { id: 'mrs', title: 'Appartement familial', city: 'Marseille 7e', deal: 'Location', type: 'Appartement', specs: '4 pièces · 110 m²', img: 'assets/r-dining.jpg', alt: 'Salle à manger lumineuse avec grandes fenêtres' },
+      { id: 'nice', title: "Villa d'architecte", city: 'Nice', deal: 'Vente', type: 'Villa', specs: '6 pièces · 260 m²', img: 'assets/r-villa3.jpg', alt: 'Villa moderne blanche et piscine' },
+      { id: 'p16', title: 'Pied-à-terre', city: 'Paris 16e', deal: 'Location', type: 'Appartement', specs: '2 pièces · 55 m²', img: 'assets/r-bedroom.jpg', alt: 'Chambre élégante avec tête de lit en arche' }
+    ];
+  }
+  renderVals() {
+    const s = this.state || {};
+    const t = s.theme || 'dark';
+    const dark = t === 'auto' ? s.sysDark !== false : t === 'dark';
+    const deal = s.deal || 'Tous';
+    const type = s.type || 'Tous';
+    const favOnly = !!s.favOnly;
+    const favs = s.favs || {};
+    const chips = (labels, cur, key) => labels.map((l) => ({ label: l, on: l === cur ? 'on' : '', p: String(l === cur), pick: () => this.setState({ [key]: l }) }));
+    const items = this.data().filter((b) => (deal === 'Tous' || b.deal === deal) && (type === 'Tous' || b.type === type) && (!favOnly || favs[b.id])).map((b, i) => Object.assign({}, b, {
+      price: b.deal === 'Vente' ? 'Prix sur demande' : 'Loyer sur demande',
+      delay: (i * 0.06) + 's',
+      favCls: favs[b.id] ? 'on' : '',
+      favP: String(!!favs[b.id]),
+      favLabel: favs[b.id] ? 'Retirer des favoris' : 'Ajouter aux favoris',
+      heartFill: favs[b.id] ? 'currentColor' : 'none',
+      toggle: () => this.toggleFav(b.id)
+    }));
+    return {
+      themeClass: dark ? '' : 'light',
+      segDark: t === 'dark' ? 'on' : '', segLight: t === 'light' ? 'on' : '', segAuto: t === 'auto' ? 'on' : '',
+      pDark: String(t === 'dark'), pLight: String(t === 'light'), pAuto: String(t === 'auto'),
+      toDark: () => this.setTheme('dark'), toLight: () => this.setTheme('light'), toAuto: () => this.setTheme('auto'),
+      deals: chips(['Tous', 'Vente', 'Location'], deal, 'deal'),
+      types: chips(['Tous', 'Appartement', 'Maison', 'Villa', 'Loft'], type, 'type'),
+      favOnlyCls: favOnly ? 'on' : '', favOnlyP: String(favOnly),
+      toggleFavOnly: () => this.setState({ favOnly: !favOnly }),
+      items: items,
+      count: items.length,
+      countLabel: items.length > 1 ? 'biens' : 'bien',
+      hasItems: items.length > 0,
+      noItems: items.length === 0,
+      resetFilters: () => this.setState({ deal: 'Tous', type: 'Tous', favOnly: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

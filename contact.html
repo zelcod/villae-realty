@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VILLAE Realty — Contact et estimation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&amp;family=Manrope:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+.vr{--bg:#0F1311;--surface:#151A17;--surface2:#1D2420;--ink:#ECEAE2;--muted:#A3A79C;--line:rgba(236,234,226,.13);--line2:rgba(236,234,226,.35);--accent:#B8CDB2;--accent-hi:#CFE0C9;--accent-text:#BFD3B8;--on-accent:#0F1311;--ph:#1D2420;--glow:rgba(184,205,178,.3);--shadow:rgba(0,0,0,.6);background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;transition:background-color .5s ease,color .5s ease}
+.vr.light{--bg:#F4F2EC;--surface:#EAE7DE;--surface2:#DFDBD0;--ink:#1A1F1C;--muted:#59605A;--line:#D2CEC2;--line2:#959B92;--accent:#3E5A47;--accent-hi:#4B6B55;--accent-text:#3E5A47;--on-accent:#F4F2EC;--ph:#DFDBD0;--glow:rgba(62,90,71,.35);--shadow:rgba(30,40,32,.3)}
+.vr header,.vr section{transition:background-color .5s ease,color .5s ease,border-color .5s ease}
+.vr-serif{font-family:Fraunces,Georgia,serif;font-optical-sizing:auto}
+a{color:var(--accent-text)}
+.vr-link{position:relative;padding:12px 2px;margin:0 10px;font-size:13px;letter-spacing:.06em;color:var(--ink);text-decoration:none;transition:color .3s}
+.vr-link::after{content:"";position:absolute;left:50%;right:50%;bottom:6px;height:1px;background:var(--accent);transition:left .4s cubic-bezier(.2,.7,.2,1),right .4s cubic-bezier(.2,.7,.2,1)}
+.vr-link:hover,.vr-link.on{color:var(--accent-text)}
+.vr-link:hover::after,.vr-link.on::after{left:0;right:0}
+.vr-btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:17px 28px;border-radius:999px;font-family:inherit;font-size:13px;letter-spacing:.06em;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,color .35s,border-color .35s,background-color .35s}
+.vr-arr{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.vr-btn:hover .vr-arr{transform:translateX(5px)}
+.vr-btn:active{transform:scale(.97)}
+.vr-solid{background:var(--accent);color:var(--on-accent)}
+.vr-solid::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--accent-hi);transform:scale(0);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.vr-solid:hover{color:var(--on-accent);transform:translateY(-2px);box-shadow:0 14px 32px -14px var(--glow),0 6px 16px -10px var(--shadow)}
+.vr-solid:hover::before{transform:scale(1.5)}
+.vr-ghost{color:var(--ink);border-color:var(--line2);background:transparent}
+.vr-ghost::after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--ink);transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.vr-ghost:hover{color:var(--bg);border-color:var(--ink);transform:translateY(-2px)}
+.vr-ghost:hover::after{transform:translateY(0)}
+.vr-seg{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px}
+.vr-sb{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;transition:background-color .3s,color .3s}
+.vr-sb svg{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.vr-sb:hover{color:var(--ink);background:var(--surface2)}
+.vr-sb:hover svg{transform:rotate(-25deg) scale(1.1)}
+.vr-sb.on{background:var(--accent);color:var(--on-accent)}
+.vr-crumb{color:var(--muted);text-decoration:none;transition:color .3s}
+.vr-crumb:hover{color:var(--accent-text)}
+.vr-img{position:relative;overflow:hidden;background:var(--ph)}
+.vr-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.vr-img:hover img{transform:scale(1.04)}
+.vr-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:5px;border:1px solid var(--line);border-radius:999px;width:fit-content;max-width:100%}
+.vr-tab{min-height:44px;padding:10px 20px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background-color .3s,color .3s}
+.vr-tab:hover{color:var(--ink);background:var(--surface2)}
+.vr-tab.on{background:var(--accent);color:var(--on-accent)}
+.vr-field{display:flex;flex-direction:column;gap:8px}
+.vr-label{font-size:12px;letter-spacing:.08em;color:var(--muted);transition:color .3s}
+.vr-field:focus-within .vr-label{color:var(--accent-text)}
+.vr-input{font-family:inherit;font-size:16px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:15px 18px;outline:none;width:100%;transition:border-color .3s,box-shadow .3s,background-color .3s}
+.vr-input:hover{border-color:var(--line2)}
+.vr-input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--glow)}
+.vr-input option{background:var(--bg);color:var(--ink)}
+.vr-input::placeholder{color:var(--muted);opacity:.75}
+.vr-check{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.6;color:var(--muted);cursor:pointer}
+.vr-check input{width:18px;height:18px;margin-top:2px;accent-color:var(--accent)}
+.vr-flink{color:#A3A79C;text-decoration:none;transition:color .3s}
+.vr-flink:hover{color:#CFE0C9}
+@keyframes vr-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.vr-in{animation:vr-in .6s cubic-bezier(.2,.7,.2,1) both}
+</style>
+<script src="js/dc-lite.js" defer></script>
+</head>
+<body>
+<div id="dc-root"></div>
+<noscript><p style="padding:40px;font-family:sans-serif">Ce site nécessite JavaScript.</p></noscript>
+<template id="dc-tpl">
+
+
+<div class="vr {{themeClass}}" style="width: 100%; min-height: 100vh">
+
+
+  <header style="position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px">
+      <a href="index.html" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink)">
+        <svg width="40" height="44" viewBox="0 0 40 44" fill="none" aria-hidden="true" style="stroke: var(--accent)"><path d="M3 43V20a17 17 0 0 1 34 0v23" stroke-width="1.2"></path><path d="M10 43V21a10 10 0 0 1 20 0v22" stroke-width="0.7"></path><path d="M1 43h38" stroke-width="1.2"></path></svg>
+        <span style="display: flex; flex-direction: column; line-height: 1.1">
+          <span class="vr-serif" style="font-size: 23px; letter-spacing: 0.08em">VILLAE</span>
+          <span style="font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--muted)">Realty</span>
+        </span>
+      </a>
+      <nav aria-label="Navigation principale" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+        <a href="index.html" class="vr-link">Accueil</a>
+        <a href="biens.html" class="vr-link">Nos biens</a>
+        <a href="index.html" class="vr-link">Services</a>
+        <a href="contact.html" class="vr-link on">Contact</a>
+        <div class="vr-seg" role="group" aria-label="Thème d'affichage" style="margin-left: 10px">
+          <button type="button" class="vr-sb {{segDark}}" aria-pressed="{{pDark}}" aria-label="Thème sombre" title="Sombre" onClick="{{toDark}}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.2A8.5 8.5 0 1 1 10.8 3.5a6.6 6.6 0 0 0 9.7 9.7z"></path></svg></button>
+          <button type="button" class="vr-sb {{segLight}}" aria-pressed="{{pLight}}" aria-label="Thème clair" title="Clair" onClick="{{toLight}}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"></path></svg></button>
+          <button type="button" class="vr-sb {{segAuto}}" aria-pressed="{{pAuto}}" aria-label="Suivre le réglage de l'appareil" title="Auto" onClick="{{toAuto}}"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12.5" rx="1.5"></rect><path d="M9 20.5h6M12 16.5v4"></path></svg></button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section style="max-width: 1280px; margin: 0 auto; padding: 56px 40px 120px">
+    <p style="margin: 0 0 48px; font-size: 13px; letter-spacing: 0.06em"><a href="index.html" class="vr-crumb">Accueil</a> <span style="color: var(--muted)">/</span> <span style="color: var(--accent-text)">Contact &amp; estimation</span></p>
+    <div style="display: flex; flex-wrap: wrap; gap: 72px; align-items: flex-start">
+
+      <div style="flex: 1 1 540px; min-width: 0; display: flex; flex-direction: column; gap: 36px">
+        <div style="display: flex; flex-direction: column; gap: 20px">
+          <h1 class="vr-serif" style="margin: 0; font-weight: 300; font-size: clamp(44px, 5.6vw, 80px); line-height: 1; letter-spacing: -0.02em">{{title}} <em style="color: var(--accent-text)">{{titleEm}}</em></h1>
+          <p style="margin: 0; max-width: 540px; font-size: 16px; line-height: 1.75; color: var(--muted)">{{intro}}</p>
+        </div>
+
+        <div class="vr-tabs" role="tablist" aria-label="Objet de la demande">
+          <button type="button" role="tab" class="vr-tab {{tEst}}" aria-selected="{{sEst}}" onClick="{{toEst}}">Estimer mon bien</button>
+          <button type="button" role="tab" class="vr-tab {{tBuy}}" aria-selected="{{sBuy}}" onClick="{{toBuy}}">Acheter ou louer</button>
+          <button type="button" role="tab" class="vr-tab {{tMng}}" aria-selected="{{sMng}}" onClick="{{toMng}}">Confier la gestion</button>
+        </div>
+
+        <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+          <div class="vr-in" role="status" style="display: flex; flex-direction: column; gap: 18px; padding: 40px; border: 1px solid var(--accent); border-radius: 22px; background: var(--surface)">
+            <svg width="44" height="44" viewBox="0 0 40 40" fill="none" style="stroke: var(--accent)" stroke-width="1.5" aria-hidden="true"><circle cx="20" cy="20" r="18"></circle><path d="M12 20.5l5.5 5.5L28.5 15"></path></svg>
+            <h2 class="vr-serif" style="margin: 0; font-weight: 400; font-size: 34px">Merci, c'est noté.</h2>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: var(--muted)">Un conseiller VILLAE Realty vous recontacte sous [24 h ouvrées].</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px"><button type="button" class="vr-btn vr-ghost" onClick="{{reset}}">Nouvelle demande</button><a href="biens.html" class="vr-btn vr-solid">Voir nos biens <span class="vr-arr">→</span></a></div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+          <form class="vr-in" onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 22px">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px">
+              <div class="vr-field"><label class="vr-label" for="r-nom">Nom &amp; prénom</label><input id="r-nom" class="vr-input" type="text" autocomplete="name" required placeholder="Jeanne Martin"></div>
+              <div class="vr-field"><label class="vr-label" for="r-mail">E-mail</label><input id="r-mail" class="vr-input" type="email" autocomplete="email" required placeholder="jeanne@exemple.fr"></div>
+              <div class="vr-field"><label class="vr-label" for="r-tel">Téléphone</label><input id="r-tel" class="vr-input" type="tel" autocomplete="tel" placeholder="06 00 00 00 00"></div>
+              <div class="vr-field"><label class="vr-label" for="r-type">Type de bien</label>
+                <select id="r-type" class="vr-input"><option>Appartement</option><option>Maison</option><option>Villa</option><option>Loft</option><option>Immeuble</option></select>
+              </div>
+              <div class="vr-field"><label class="vr-label" for="r-ville">{{cityLabel}}</label><input id="r-ville" class="vr-input" type="text" placeholder="Ville ou arrondissement"></div>
+              <div class="vr-field"><label class="vr-label" for="r-surf">{{sizeLabel}}</label><input id="r-surf" class="vr-input" type="text" placeholder="{{sizeHint}}"></div>
+            </div>
+            <sc-if value="{{isBuy}}" hint-placeholder-val="{{ false }}">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 22px">
+                <div class="vr-field"><label class="vr-label" for="r-proj">Projet</label><select id="r-proj" class="vr-input"><option>Achat</option><option>Location</option><option>Investissement</option></select></div>
+                <div class="vr-field"><label class="vr-label" for="r-bud">Budget</label><input id="r-bud" class="vr-input" type="text" placeholder="[Budget]"></div>
+              </div>
+            </sc-if>
+            <div class="vr-field"><label class="vr-label" for="r-msg">Message</label><textarea id="r-msg" class="vr-input" rows="4" placeholder="{{msgHint}}" style="resize: vertical"></textarea></div>
+            <label class="vr-check"><input type="checkbox" required><span>J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la politique de confidentialité.</span></label>
+            <div><button type="submit" class="vr-btn vr-solid">{{cta}} <span class="vr-arr">→</span></button></div>
+          </form>
+        </sc-if>
+      </div>
+
+      <aside style="flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+        <div class="vr-img" style="aspect-ratio: 4 / 5; border-radius: 22px"><img src="assets/r-key.jpg" alt="Main tenant un trousseau de clés devant une porte"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-text)">Nous joindre</span>
+          <span class="vr-serif" style="font-size: 26px">[Téléphone]</span>
+          <span style="font-size: 15px; color: var(--muted)">[contact@villae-realty.fr]</span>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 16px; padding-top: 20px; border-top: 1px solid var(--line)">
+            <span style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-text)">Nos 4 agences</span>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Yaoundé</span><span style="font-size: 14px; color: var(--muted)">[N° et rue], Yaoundé, Cameroun</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted)">Lun–Ven 9h30–18h30 · Sam 10h–13h</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Douala</span><span style="font-size: 14px; color: var(--muted)">[N° et rue], Douala, Cameroun</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted)">Lun–Ven 9h30–18h · Sam 10h–13h</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Bertoua</span><span style="font-size: 14px; color: var(--muted)">[N° et rue], Bertoua, Cameroun</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted)">Lun–Ven 9h–17h30 · Sam 10h–13h</span></div>
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Garoua</span><span style="font-size: 14px; color: var(--muted)">[N° et rue], Garoua, Cameroun</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted)">Lun–Ven 9h30–18h · Sam 10h–13h</span></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer style="background: #070807; color: #A3A79C">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 12px">
+      <span>© 2026 VILLAE Realty · Carte professionnelle [N°] · Photos : Unsplash</span>
+      <span style="display: flex; flex-wrap: wrap; gap: 24px"><a href="index.html" class="vr-flink">Accueil</a><a href="biens.html" class="vr-flink">Nos biens</a><a href="#" class="vr-flink">Mentions légales</a><a href="#" class="vr-flink">Confidentialité</a></span>
+    </div>
+  </footer>
+</div>
+</template>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2100}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    let t = 'dark';
+    try { t = window.localStorage.getItem('vpm-theme') || 'dark'; } catch (e) {}
+    let sys = true;
+    try {
+      this.mq = window.matchMedia('(prefers-color-scheme: dark)');
+      sys = this.mq.matches;
+      this.onMq = (e) => this.setState({ sysDark: e.matches });
+      this.mq.addEventListener('change', this.onMq);
+    } catch (e) {}
+    this.setState({ theme: t, sysDark: sys });
+  }
+  componentWillUnmount() { try { this.mq.removeEventListener('change', this.onMq); } catch (e) {} }
+  setTheme(t) {
+    this.setState({ theme: t });
+    try { window.localStorage.setItem('vpm-theme', t); } catch (e) {}
+  }
+  renderVals() {
+    const s = this.state || {};
+    const t = s.theme || 'dark';
+    const dark = t === 'auto' ? s.sysDark !== false : t === 'dark';
+    const tab = s.tab || 'est';
+    const sent = !!s.sent;
+    const copy = {
+      est: { title: 'Estimer', titleEm: 'votre bien.', intro: "Décrivez votre bien : un conseiller vous propose une visite et vous remet un avis de valeur écrit, offert et sans engagement.", city: 'Adresse du bien', size: 'Surface', sizeHint: 'ex. 95 m²', msg: 'État, étage, extérieurs, travaux récents…', cta: 'Demander mon estimation' },
+      buy: { title: 'Trouver', titleEm: 'le bon bien.', intro: "Confiez-nous votre recherche : nous vous présentons des biens sélectionnés, y compris hors marché.", city: 'Secteur recherché', size: 'Surface souhaitée', sizeHint: 'ex. 80 à 120 m²', msg: 'Vos critères : nombre de pièces, extérieur, calendrier…', cta: 'Lancer ma recherche' },
+      mng: { title: 'Confier', titleEm: 'votre gestion.', intro: "Loyers, locataires, travaux : nous gérons votre bien et vous rendons compte régulièrement.", city: 'Adresse du bien', size: 'Surface', sizeHint: 'ex. 60 m²', msg: 'Bien loué ou vacant, meublé ou non, attentes particulières…', cta: 'Être rappelé' }
+    }[tab];
+    return {
+      themeClass: dark ? '' : 'light',
+      segDark: t === 'dark' ? 'on' : '', segLight: t === 'light' ? 'on' : '', segAuto: t === 'auto' ? 'on' : '',
+      pDark: String(t === 'dark'), pLight: String(t === 'light'), pAuto: String(t === 'auto'),
+      toDark: () => this.setTheme('dark'), toLight: () => this.setTheme('light'), toAuto: () => this.setTheme('auto'),
+      tEst: tab === 'est' ? 'on' : '', tBuy: tab === 'buy' ? 'on' : '', tMng: tab === 'mng' ? 'on' : '',
+      sEst: String(tab === 'est'), sBuy: String(tab === 'buy'), sMng: String(tab === 'mng'),
+      toEst: () => this.setState({ tab: 'est', sent: false }), toBuy: () => this.setState({ tab: 'buy', sent: false }), toMng: () => this.setState({ tab: 'mng', sent: false }),
+      isBuy: tab === 'buy',
+      title: copy.title, titleEm: copy.titleEm, intro: copy.intro, cityLabel: copy.city, sizeLabel: copy.size, sizeHint: copy.sizeHint, msgHint: copy.msg, cta: copy.cta,
+      sent: sent, notSent: !sent,
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
